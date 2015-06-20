@@ -1,0 +1,27 @@
+function [reponse]=PolyMulti(test, alpha_bin)
+
+res=conv(test,alpha_bin);
+res=mod((num2str(res)-48),2);
+
+if size(res,2)<4, res=[zeros(1,4-size(res,2)) res];
+elseif size(res,2)=4, res=res;
+else
+    res=[zeros(1,7-size(res,2)) res];
+    res_final=res(4:7);
+    if res(1)==1, res_final=xor([1 1 0 0], res_final) end
+    if res(2)==1, res_final=xor([0 1 1 0], res_final) end
+    if res()
+end
+        
+for alpha=2:15
+    alpha_bin=dec2bin(alpha);
+    test=1;
+    for i=1:(2^4-2)
+        test=alpha_bin*test;
+        res=conv(test, alpha_bin);
+        arrayRes(i)=res;
+        % test xem res da co trong arrayRes hay chua????
+    end
+end
+
+return,

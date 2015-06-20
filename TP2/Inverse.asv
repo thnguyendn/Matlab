@@ -1,0 +1,19 @@
+function [inverse]=Inverse(element, arrayRes, nbreDeBits)
+
+element_dec=bin2dec(element);
+
+for i=1:size(arrayRes,2)
+    if i==0,
+        
+    elseif i==1,
+        
+    elseif i>=element_dec==arrayRes(i)
+        index_inverse=2^nbreDeBits+3-i;
+        break;
+    end
+end
+
+inverse=dec2bin(arrayRes(index_inverse),nbreDeBits);% inverse en char
+inverse=double(inverse)-48;
+
+return,

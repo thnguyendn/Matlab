@@ -1,0 +1,13 @@
+function chiffre = affine(a,b,texteClair)
+
+mod(a*inverse,26)=1
+
+% Chiffrer le texte entree
+res = xor(cleBin, clairBin);
+chiffre = bin2dec(num2str(uint8(res)))';
+chiffre = char(chiffre)
+
+% Déchiffrer le texte chiffré
+dechiffrer = xor(cleBin, res);
+dechiffre = char(bin2dec(num2str(uint8(dechiffrer))))'
+

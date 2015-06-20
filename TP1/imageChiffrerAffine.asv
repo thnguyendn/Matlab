@@ -1,0 +1,18 @@
+function chiffre = imageChiffrerAffine(a,b)
+
+path = 'C:\Users\Thang NGUYEN\Documents\MATLAB\TP1\lenna.png';
+imgClair = imread(path);
+imgChiffre = mod(a*imgClair+b,256);
+
+% créer un clé
+cle = rand(length(imgClair)*length(imgClair) , 8) > 0.5;
+size(cle)
+
+% Partie à chiffrer
+imshow(reshape(res2 , 512 , 512))
+
+% Partie à déchiffrer
+dechiffrer = xor(cle, res);
+dechiffrer2= uint8(bin2dec(num2str(uint8(dechiffrer))));
+figure,
+imshow(reshape(dechiffrer2 , 512 , 512))

@@ -1,0 +1,40 @@
+function chiffre = vernam(clair,cle)
+clairDec = uint8(clair);
+clairBin = dec2bin(clairDec);
+clairBin = uint8(clairBin)-48
+
+cleDec = uint8(cle);
+cleBin = dec2bin(cle);
+cleBin = uint8(cleBin)-48
+
+%length(clairBin)
+%clairBin(3,1)
+
+[lignes, colonnes] = size(clairBin);
+[lignes, colonnes] = size(cleBin);
+
+% Chiffrer le texte entree
+res = xor(cleBin, clairBin);
+chiffre = bin2dec(num2str(uint8(res)))',
+chiffre = char(chiffre)
+
+% Déchiffrer le texte chiffré
+dechiffrer = xor(cleBin, res),
+char(bin2dec(num2str(uint8(dechiffrer))))'
+
+
+% string = uint8(input('Cha?ne ? chiffrer : ', 's'));
+% password = 42;
+% 
+% rand('twister', password);
+% random_stream = rand(length(string), 7) > 0.5;
+% string = dec2bin(string)
+% string = uint8(string)-48
+% 
+% res = xor(random_stream, string),
+% bin2dec(num2str(uint8(res)))',
+% 
+% char(bin2dec(num2str(uint8(res))))'
+% 
+% dechiffrer = xor(random_stream, res),
+% char(bin2dec(num2str(uint8(dechiffrer))))'
